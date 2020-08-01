@@ -2,8 +2,11 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/completableFuture/completableFuture.iml" filepath="$PROJECT_DIR$/completableFuture/completableFuture.iml" />
-      <module fileurl="file://$PROJECT_DIR$/concurrency/concurrency.iml" filepath="$PROJECT_DIR$/concurrency/concurrency.iml" />
+      <module fileurl="file://$PROJECT_DIR$/1_concurrency/1_concurrency.iml" filepath="$PROJECT_DIR$/1_concurrency/1_concurrency.iml" />
+      <module fileurl="file://$PROJECT_DIR$/2_completableFuture/2_completableFuture.iml" filepath="$PROJECT_DIR$/2_completableFuture/2_completableFuture.iml" />
+      <module fileurl="file://$PROJECT_DIR$/3_rxjava/3_rxjava.iml" filepath="$PROJECT_DIR$/3_rxjava/3_rxjava.iml" />
+      <module fileurl="file://$PROJECT_DIR$/4_functional/4_functional.iml" filepath="$PROJECT_DIR$/4_functional/4_functional.iml" />
+      <module fileurl="file://$PROJECT_DIR$/5_google-api/5_google-api.iml" filepath="$PROJECT_DIR$/5_google-api/5_google-api.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/exploring-java.iml" filepath="$PROJECT_DIR$/.idea/exploring-java.iml" />
     </modules>
   </component>
