@@ -65,4 +65,7 @@
     - `toUnmodifiableSet()` : Immutable Set
     - `toUnmodifiableMap()` : Immutable Map
 - `joining()`        
-- `groupingBy` and `mapping`
+- `groupingBy`
+    - `mapping`
+    - `counting`
+    - `countingAndThen`
