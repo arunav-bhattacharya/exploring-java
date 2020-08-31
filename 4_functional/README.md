@@ -5,11 +5,16 @@
 > - Pure functions are idempotent - they return the same result everytime when called with the same parameters
 > - Pure Functions don't have side-effect
 >   - They don't change anything
->   - They don't depend on anything that may possibly change 
+>   - They don't depend on anything that may possibly change
+>
+> We'll break this discussion under the following topics -
+>   1. Lambdas
+>   2. Streams
+>   3. Collectors 
 
 <br/>
 
-## Lambdas
+## 1. Lambdas
 - Lambdas appear to be a neat replacement for anonymous inner classes, but under the hood it is an `invokedynamic`.
 
 ### Method References
@@ -21,7 +26,7 @@
 
 <br/> 
     
-## Streams        
+## 2. Streams        
 - **`filter`**:
     - Filters item(s) from the input stream
     - Input and Output streams are of same type 
@@ -56,16 +61,29 @@
 
 <br/>
     
-## Collectors     
-- `toList()`
-- `toSet()`
-- `toMap()` 
+## 3. Collectors     
+- **`toList()`**
+- **`toSet()`**
+- **`toMap()`** 
+
 - Unmodifiable Collections introduced as a part of Java 10
-    - `toUnmodifiableList()` : Immutable List 
-    - `toUnmodifiableSet()` : Immutable Set
-    - `toUnmodifiableMap()` : Immutable Map
-- `joining()`        
-- `groupingBy`
-    - `mapping`
-    - `counting`
-    - `countingAndThen`
+    - **`toUnmodifiableList()`** : Immutable List 
+    - **`toUnmodifiableSet()`** : Immutable Set
+    - **`toUnmodifiableMap()`** : Immutable Map
+
+- **`joining()`**
+
+- **`partitioningBy()`**        
+
+- **`groupingBy()`**: 
+    - groupingBy is a `Collector` that has 2 variants -
+        - `groupingBy(Function<T,R>)` returns a `Collector`
+        - `groupingBy(Function<T,R>, Collector)` also returns a `Collector`
+    - Different Collectors in `groupingBy()`: 
+        - `mapping()`: Takes in a `Function<T,R>` and a `Collector` as parameters. While using `groupingBy()`, `mapping()` helps in transforming to another Collector. When using `mapping` with `groupingBy` the function call appears to be recursive as follows -
+           ```java
+               //Collector(Function, Collector(Function, Collector))
+               groupingBy(Person::getName, mapping(Person::getAge, toList()))       
+          ```
+        - `counting()`: 
+        - `collectingAndThen()`
