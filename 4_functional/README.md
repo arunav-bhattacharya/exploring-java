@@ -44,7 +44,7 @@
     - `reduce` on `Stream<T>` takes two parameters:
     - first parameter is of type `T`, which denotes the starting value
     - second parameter is of type `BiFunction<R, T, R>` to produce a result of `R`
-
+     
 > Note:
 > - Each `filter` and `map` operation works on a single piece of item. They operate in their own swimlanes.
 > - Whereas `reduce` cuts across the swimlanes. Operates on the current item as well as the carry-over/initial item.
@@ -58,6 +58,30 @@
     - ordered or un-ordered
     - sorted or un-sorted
 - Streams can be infinite
+
+### Other useful Stream operators
+
+- `sorted`
+- `distinct`
+- `forEach`
+- `flatMap`
+- `findFirst`
+- `peek`
+- `skip`
+- `limit`
+- `min`
+- `max`
+- `allMatch`
+- `anyMatch`
+- `noneMatch`
+- `takeWhile`
+- `dropWhile`
+
+### Creating Infinite Streams
+
+- IntStream.range()
+- generate()
+- iterate()
 
 <br/>
     
@@ -85,5 +109,9 @@
                //Collector(Function, Collector(Function, Collector))
                groupingBy(Person::getName, mapping(Person::getAge, toList()))       
           ```
-        - `counting()`: 
+        - `counting()` 
         - `collectingAndThen()`
+        - `maxBy()`
+        - `minBy()`
+        - `filtering()`
+        - `flatMapping()`
