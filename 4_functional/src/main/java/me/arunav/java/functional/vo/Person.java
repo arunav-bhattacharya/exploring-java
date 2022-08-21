@@ -1,4 +1,4 @@
-package me.arunav.java.functional;
+package me.arunav.java.functional.vo;
 
 public class Person {
   private final String name;

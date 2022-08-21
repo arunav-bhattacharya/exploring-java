@@ -1,5 +1,8 @@
 package me.arunav.java.functional;
 
+import me.arunav.java.functional.vo.Gender;
+import me.arunav.java.functional.vo.Person;
+
 import java.util.Arrays;
 import java.util.List;
 import java.util.Map;

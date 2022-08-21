@@ -1,4 +1,4 @@
-package me.arunav.java.functional;
+package com.arunav.sample;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;

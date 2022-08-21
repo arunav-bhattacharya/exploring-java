@@ -10,6 +10,7 @@
     <version>1.0-SNAPSHOT</version>
 
     <modules>
+        <module>0_sample</module>
         <module>1_concurrency</module>
         <module>2_completableFuture</module>
         <module>3_rxjava</module>

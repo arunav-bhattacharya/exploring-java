@@ -11,9 +11,11 @@
         <module name="5_google-api" />
         <module name="2_completableFuture" />
         <module name="3_rxjava" />
+        <module name="0_sample" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="0_sample" target="8" />
       <module name="1_concurrency" target="8" />
       <module name="2_completableFuture" target="8" />
       <module name="3_rxjava" target="8" />

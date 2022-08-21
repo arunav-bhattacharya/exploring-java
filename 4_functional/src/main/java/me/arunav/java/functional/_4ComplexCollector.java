@@ -1,5 +1,7 @@
 package me.arunav.java.functional;
 
+import me.arunav.java.functional.vo.Pair;
+
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.Map;
@@ -42,31 +44,5 @@ public class _4ComplexCollector {
 
         System.out.println(s);
 
-    }
-}
-
-class Pair<T, R> {
-    T first;
-    R second;
-
-    public Pair(T name, R product) {
-        this.first = name;
-        this.second = product;
-    }
-
-    public T getFirst() {
-        return first;
-    }
-
-    public void setFirst(T first) {
-        this.first = first;
-    }
-
-    public R getSecond() {
-        return second;
-    }
-
-    public void setSecond(R second) {
-        this.second = second;
     }
 }
