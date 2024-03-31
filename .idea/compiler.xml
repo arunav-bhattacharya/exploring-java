@@ -6,22 +6,17 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="1_concurrency" />
-        <module name="4_functional" />
-        <module name="5_google-api" />
-        <module name="2_completableFuture" />
-        <module name="3_rxjava" />
-        <module name="0_sample" />
+        <module name="_7_annotations" />
+        <module name="_3_rxjava" />
+        <module name="_4_functional" />
+        <module name="_0_sample" />
+        <module name="_1_concurrency" />
+        <module name="_2_completableFuture" />
+        <module name="_5_google-api" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="0_sample" target="8" />
-      <module name="1_concurrency" target="8" />
-      <module name="2_completableFuture" target="8" />
-      <module name="3_rxjava" target="8" />
-      <module name="4_functional" target="10" />
-      <module name="5_google-api" target="8" />
-      <module name="exploring-java" target="8" />
     </bytecodeTargetLevel>
   </component>
 </project>
