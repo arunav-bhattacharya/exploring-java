@@ -17,7 +17,6 @@ Multitasking allows an Operating System to run multiple processes simultaneously
 ### Multithreading
 Multithreading refers to the ability to execute multiple threads within a single process concurrently. Multithreading enhances the efficiency of multitasking by breaking down individual tasks into smaller sub-tasks or threads and these threads can be processed simultaneously thereby making better use of CPU.
 
-
 ### Multitasking vs Multithreading
 
 | Multitasking                                                                                                                     | Multithreading                                                                                              |
@@ -34,24 +33,25 @@ Multithreading refers to the ability to execute multiple threads within a single
 
 Java's multithreading is managed by the JVM and the OS, using time-slicing thread execution is managed thus giving an illusion of concurrency. Irrespective of single or multi-core CPUs, Java's multithreading can take full advantage of the available cores.
 
-### `Thread`
+### Constructing Thread
 
 A `Thread` is a lightweight process, the smallest unit of processing. To create a new thread in Java, we can do either of the two - 
-- Extend the `java.lang.Thread` class
-- Implement the `java.lang.Runnable` interface
+1. Extend the `java.lang.Thread` class
+2. Implement the `java.lang.Runnable` interface
 
 In both the cases, the overridden `run()` method contains the code that will be executed in a separate `Thread`.
 
 ### Thread Lifecycle
 
-A thread can move through a number of states in its lifecycle -
+A thread can move through a number of states in the JVM in its lifecycle -
 ```
 NEW: 
 - Thread created but not started
 
 RUNNABLE: 
 - After start() is called, it is in RUNNABLE state, but waiting for CPU time. 
-- When it is executing. But Java doesn't have a separate ENUM value for RUNNING. It is maintained under RUNNABLE  
+- When it is executing. But Java doesn't have a separate ENUM value for RUNNING. It is maintained under RUNNABLE.
+- OS actually schedules execution of thread, and that is abstracted of JVM. Hence JVM doesn't know when a thread is RUNNING, as that's why there is no RUNNING state.  
 
 BLOCKED 
 - Blocked while waiting for a lock. 
@@ -66,6 +66,19 @@ TERMINATED:
 - When thread finished executing
 ```
 
+### Daemon Thread
+
+- Daemon Threads are background threads that stop execution when the main thread completes or all user threads execution completes.
+- We can make a thread as deamon thread by setting the daemon flag to `true`.
+
+```java
+    Thread t1 = new Thread();
+    t1.setDaemon(true);
+```
+
+### `sleep()` and `join()`
+
+<br/>
 
 ## References
 
