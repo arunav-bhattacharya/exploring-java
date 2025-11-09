@@ -1,6 +1,7 @@
 package com.arunav.java.concurrency;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import static com.arunav.java.concurrency.Util.sleep;
@@ -19,9 +20,13 @@ public class _2SleepAndJoin {
         threads.add(t2);
         t2.start();
 
-        Thread reportingThread = new Thread (reporter::report);
-        reportingThread.setDaemon(true);
-        reportingThread.start();
+        Thread[] threadList = new Thread[Thread.activeCount()];
+        int num = Thread.enumerate(threadList);
+
+        Arrays.stream(threadList).forEach(System.out::println);
+//        Thread reportingThread = new Thread (reporter::report);
+//        reportingThread.setDaemon(true);
+//        reportingThread.start();
     }
 }
 

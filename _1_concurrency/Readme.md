@@ -33,7 +33,7 @@ Multithreading refers to the ability to execute multiple threads within a single
 
 Java's multithreading is managed by the JVM and the OS, using time-slicing thread execution is managed thus giving an illusion of concurrency. Irrespective of single or multi-core CPUs, Java's multithreading can take full advantage of the available cores.
 
-### Constructing Thread
+### Constructing a Thread
 
 A `Thread` is a lightweight process, the smallest unit of processing. To create a new thread in Java, we can do either of the two - 
 1. Extend the `java.lang.Thread` class
@@ -65,20 +65,80 @@ TIMED_WAITING:
 TERMINATED: 
 - When thread finished executing
 ```
+### Types of Thread
 
-### Daemon Thread
+#### User Thread
+- Performs important work for the concerned application, and terminates before the app terminates.
 
-- Daemon Threads are background threads that stop execution when the main thread completes or all user threads execution completes.
-- We can make a thread as deamon thread by setting the daemon flag to `true`.
+#### Daemon Thread
+  - Daemon Threads are background threads that stop execution when the main thread completes or all user threads execution completes.
+  - Unlike user threads, Daemon threads do not necessarily need to finish before the application terminates. 
+  - We can make a thread as deamon thread by setting the daemon flag to `true`.
 
-```java
-    Thread t1 = new Thread();
-    t1.setDaemon(true);
-```
+    ```java
+        Thread t1 = new Thread();
+        t1.setDaemon(true);
+    ```
 
 ### `sleep()` and `join()`
 
+- Halt the execution of the current thread for a specific amount of time, we can use `Thread.sleep()`
+- Wait for another thread to complete, we can use `join()`, to wait for the executing thread to complete.
+
+#### Barrier Synchronization
+- The `main` thread waits for the last thread to complete. 
+- The end times of all the executing threads are synchronized.
+
+### Stop a thread using `interrupt()`
+- `stop()` method on Thread is deprecated since Java 1.2
+- Instead, we can use `interrupt()` method on a thread to express our desire to stop a thread, but there is no guarantee that the thread will stop or not, as there might be some logic to handle interrupts and continue processing.
+- `thread.interrupt()` is a soft interrupt and doesn't co-relate to hardware interrupts. 
+
 <br/>
+
+## Concurrency Issues
+
+- Mutual Exclusion
+- Visibility Problem
+
+## Thread Synchronization
+
+### How Synchronization works in JVM ?
+- JVM creates a virtual **"lock"** on the data element
+- Thread tries to **"acquire"** a lock
+- If it acquires the lock, it can execute the synchronized code
+- Thread finishes executing block and "**releases**" lock
+- All other threads that need to execute the block have to wait until the lock is released
+
+### What `sychronized` achieves ?
+
+- **Structured Lock** - Acquire and release lock implicitly
+- **Mutual Exclusion** (MutEx) - Monitor Lock, one at a time
+- **Visibility** - Forces read and write from memory (check-then-act) in a synchronized block
+
+### How to handle concurrency issues ?
+1. Don't have shared state
+2. Share only immutable values (If step 1 is not avoidable)
+3. Use synchronization (If step 1 & 2 is not avoidable)
+
+If any of the 3 things are true, then the code is said to be **Thread Safe**.
+
+### Issues with synchronization
+- Performance issues. 
+- Choosing the correct lock
+
+### Liveness Issues
+- **Deadlock** - Thread 1 is waiting for a lock to be released which is locked by thread 2, and thread 2 is waiting 
+- **Livelock** - When 2 threads are in a deadlock, and because of a naive solution to handle deadlock, the code makes some progress, but again gets back to the same deadlock state, to again retry the same naive solution
+- **Starvation** - A thread is ready to run, but never given a chance. 
+
+## Unstructured Locks
+
+- Synchronization is a structured lock as acquire and release of lock is implicit.
+- Hand over hand locking
+- `Lock` interface provides more extensive locking mechanism than `synchronized`
+
+
 
 ## References
 

@@ -1,8 +1,6 @@
 package com.arunav.java.concurrency;
 
-import java.util.concurrent.CompletableFuture;
-
-public class ThreadExamples {
+public class _1ThreadExamples {
 
     public static void main(String[] args) throws InterruptedException {
         Thread t1 = new Thread(() -> {
